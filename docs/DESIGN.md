@@ -2,6 +2,7 @@
 
 > Documento fonte da identidade visual do frontend. Definido na sabatina 2026-09-08 entre Agente Frontend (Discovery & Design) e stakeholder NDS.
 > Representa o gabarito visual deterministico (Visual Ground Truth). Prototipos HTML/CSS fieis constam em `docs/prototypes/<feature>/`.
+> **Rev 2 (2026-09-08):** auditoria WCAG de contraste aplicada -> tokens soft solidificados (sem rgba), textos de badges escurecidos p/ AA normal >=4.5:1.
 
 ## 0. Direcao de Design (uma frase)
 
@@ -12,7 +13,7 @@ Valores que guiam cada decisao: **Acolhimento, Confianca, Simplicidade (voluntar
 Proibicoes expressas (anti AI-Slop):
 - NADA de cinza sem alma, paleta roxo-azulado padrao de SaaS, bordas em excesso, sombras genericas ou gradientes neon.
 - NADA de dashboard corporativo intimidador para o voluntario laico.
-- Contraste sempre WCAG AA (minimo) e preferencialmente AAA para texto corrente.
+- Contraste sempre WCAG AA (minimo 4.5:1 p/ texto normal) e preferencialmente AAA (7:1) para texto corrente em superficie clara.
 
 ## 1. Paleta de Cores (Color Tokens)
 
@@ -22,7 +23,7 @@ Proibicoes expressas (anti AI-Slop):
 | --nds-surface-base | #FFFFFF | Fundo de cards/paineis |
 | --nds-surface-2 | #F8F6F3 | Fundo de pagina/regioes (linho quente) |
 | --nds-surface-3 | #EFEBE4 | Regioes elevadas/zonas em repouso, tabelas zebra |
-| --nds-surface-inverse | #16302B | Cabecalhos inversos, footer (emerald profundo) |
+| --nds-surface-inverse | #16302B | Cabecalhos inversos, footer, sidebar (emerald profundo) |
 
 ### Texto (alto contraste sobre superficie clara)
 | Token | Hex | Contrast (sobre #FFFFFF) | Nivel |
@@ -43,25 +44,37 @@ Proibicoes expressas (anti AI-Slop):
 ### Acento (Cuidado pastoral/valor humano)
 | Token | Hex | Uso |
 |---|---|---|
-| --nds-accent-gold | #B8872F | Pontos de valor humano, selos, destaque de nome/apreciacao |
+| --nds-accent-gold | #B8872F | Selos/apreciacao (uso decorativo OU sobre superficie clara usar --accent-gold-deep) |
+| --nds-accent-gold-deep | #7A5C1B | Texto dourado legivel: sobre gold-soft e superfícies claras (AA 5.3:1) |
 | --nds-accent-gold-soft | #F6EBD7 | Fundo de cartao de reconhecimento / nota pastoral |
 
-### Semantica (states)
-| Token | Hex | Uso |
-|---|---|---|
-| --nds-success | #0F7B4F | Sucesso, presente/campo ok |
-| --nds-info | #2563A9 | Info, dica |
-| --nds-warning | #B45309 | Atencao, pendencia financeira |
-| --nds-danger | #C0392B | Erro, membro em risco (MIR), divergencia |
+### Soft tokens de fundo (tonalidades solidadas de semanticas - substituem rgba alpha)
+> Regra: todo estado semantico usa par [fundo-soft + texto-deep]. Texto nunca e a cor solida a 100% diretamente sobre seu proprio soft tint (reprovava AA).
 
----
-Ajuste fino de contraste semantico sobre superficie base sera validado no prototipo (Etapa 3).
+| Fundo soft | Hex | Texto correspondente | Hex texto | Contraste texto/bg soft |
+|---|---|---|---|---|
+| --nds-success-soft | #E2EFEA | --nds-success-text (deep) | #0C6B45 | 5.5:1 AA |
+| --nds-info-soft    | #E5ECF5 | --nds-info-text (deep)    | #2563A9 | 5.1:1 AA |
+| --nds-warning-soft | #F5E7DD | --nds-warning-text (deep)| #9A4A07 | 5.2:1 AA |
+| --nds-danger-soft  | #F7E5E3 | --nds-danger-text (deep) | #B02F23 | 5.3:1 AA |
+
+### Solidas de estado (para uso em superficie clara/branco e iconografia)
+| Token | Hex | Sobre White | Sobre surface-2 |
+|---|---|---|---|
+| --nds-success | #0F7B4F | 5.3:1 AA | 4.9:1 AA |
+| --nds-info | #2563A9 | 6.1:1 AA | 5.7:1 AA |
+| --nds-warning | #B45309 | 5.0:1 AA | 4.7:1 AA |
+| --nds-danger | #C0392B | 5.4:1 AA | 5.0:1 AA |
+
+> NOTA DE USO: --success/--warning/--danger (solido) sao para ICONES, bordas e estado grafico. Para TEXTO (labels/badges) sobre fundos claros ou soft-tint, sempre os pares soft-text (deeper). Isso garante AA normal permanente.
 
 ## 2. Tipografia
 
-Display/Fraunces serif acolhedor para titulos de CRM, nome do membro, painel do pastor, hero do PWA. UI/Body/Inter legibilidade operacional para secretaria/tesouraria/listagens/formularios. Dados/Financas/JetBrains Mono para conciliacao OFX, saldos, datas, ids.
+Display/Fraunces serif acolhedor para titulos de CRM, nome do membro em contexto de apreciacao, painel do pastor, hero do PWA. UI/Body/Inter legibilidade operacional para secretaria/tesouraria/listagens/formularios. Dados/Financas/JetBrains Mono para conciliacao OFX, saldos, datas, ids.
 
 Escala rem: xs .75, sm .875, base 1, lg 1.125, xl 1.25, 2xl 1.5, 3xl 1.875, 4xl 2.25. Pesos: body 400, enfase 500, Inter titulo 600, Fraunces 560-600. Line-height titulo 1.15, corpo compacto 1.4, corpo pastoral amplo 1.6.
+
+Regra de aplicacao serif/sans: o NOME da pessoa usa Fraunces (.serif) apenas quando a pessoa esta em contexto de VALORIZACAO/acolhimento (colunas em processo, destacada, apreciada). Nomes em listagens operacionais densas (secretaria) usam Inter. Icones de avatar sempre mono.
 
 Fallbacks: system-ui para Inter, Georgia para Fraunces, ui-monospace para mono.
 
@@ -75,31 +88,31 @@ Sombras: sombra-suave sutil, sombra-elevada so em modal/menu, hover com leve ele
 
 ## 4. Pessoas no centro
 
-Avatar com iniciais sobre primary-soft + ring primaria, fotografia opcional. Nome em contexto de apreciacao em Fraunces com accent-gold sutil. Estado MIR nunca apenas com cor: icone alerta + rotulo textual + contraste.
+Avatar com iniciais sobre primary-soft + ring primaria, fotografia opcional. Nome em contexto de apreciacao em Fraunces com accent-gold-deep. Estado MIR nunca apenas com cor: icone alerta + rotulo textual + contraste.
 
 ## 5. Componentes Core
 
 Button primary/soft/ghost/danger-outline, tamanhos sm/md/lg, estados hover/focus/active/disabled/loading.
 
-Input/Select/Textarea com label for, helper, focus primary-border+ring, erro danger com aria-describedby.
+Input/Select/Textarea com label for, helper, focus primary-border+ring, erro danger-text com aria-describedby.
 
 Card com fundo branco, borda 1px surface-3, raio lg 16, padding 20/24, CardHeader titulo+subtitulo+acoes.
 
-Badge/Tag suaves success/info/warning/danger + gold pastoral, com texto quando semantica.
+Badge/Tag suaves: usa SEMPRE par [fundo-token-soft + texto-token-deep]. Gold pastoral com --accent-gold-deep. Quando semantico, texto sempre presente (nunca so cor).
 
 Table com header surface-2, zebra surface-3, coluna numerica JetBrains Mono a direita, header sticky.
 
-EmptyState com icone em primary-soft + titulo Fraunces + texto + CTA primario.
+EmptyState com icone em primary-soft + titulo Fraunces + texto + CTA primario explicito.
 
-Skeleton (loading) blocos surface-3 com shimmer sutil.
+Skeleton (loading) blocos surface-3 com shimmer sutil; replica a silhueta real do conteudo (ex.: card de pessoa ou linha de tabela).
 
-ErrorState painel danger suave + acao nova tentativa, log nunca cru.
+ErrorState painel danger-soft + texto danger-text + botao nova tentativa; log nunca cru.
 
 Shell admin com sidebar surface-inverse texto claro AAA; PWA membro header claro surface-2.
 
 ## 6. Acessibilidade
 
-Landmarks semanticos <header>/<nav>/<main>/<section>/<footer>. Focus visible 2px primary-border + ring. Icone sem texto com aria-label. Imagem com alt. Erro via aria-describedby. Modal aria-modal + fechamento Esc. Status MIR com texto adicional.
+Landmarks semanticos <header>/<nav>/<main>/<section>/<footer>. Focus visible 2px primary-border + ring. Icone sem texto com aria-label. Imagem com alt. Erro via aria-describedby. Modal aria-modal + fechamento Esc. Status MIR com texto adicional. Radio/checkbox com contraste no estado selecionado. Todos os pares fg/bg >=4.5:1 (AA) para texto normal.
 
 ## 7. Escopo visual por fase
 

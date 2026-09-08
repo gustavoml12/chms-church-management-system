@@ -13,17 +13,20 @@
   <div class="app-shell">
     <aside class="sidebar" aria-label="Navegacao administrativa">
       <div class="sidebar-brand">
-        <span class="brand-mark">C</span>
-        <span class="brand-name">ChMS Pastoral</span>
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span class="brand-name">
+          ChMS Pastoral
+          <span class="brand-sub">GestorNDS</span>
+        </span>
       </div>
-      <nav class="sidebar-nav">
-        <a href="#" class="nav-item active"><span class="nav-ico">H</span> Painel</a>
-        <a href="#" class="nav-item"><span class="nav-ico">P</span> Pessoas</a>
-        <a href="#" class="nav-item"><span class="nav-ico">A</span> Acolhimento</a>
-        <a href="#" class="nav-item"><span class="nav-ico">R</span> Risco (MIR)</a>
-        <a href="#" class="nav-item"><span class="nav-ico">B</span> Boas-Vindas</a>
-        <a href="#" class="nav-item"><span class="nav-ico">F</span> Financas</a>
-        <a href="#" class="nav-item"><span class="nav-ico">O</span> Conciliacao OFX</a>
+      <nav class="sidebar-nav" aria-label="Modulos">
+        <a href="#" class="nav-item active"><span class="nav-ico" aria-hidden="true">H</span> Painel</a>
+        <a href="#" class="nav-item"><span class="nav-ico" aria-hidden="true">P</span> Pessoas</a>
+        <a href="#" class="nav-item"><span class="nav-ico" aria-hidden="true">A</span> Acolhimento</a>
+        <a href="#" class="nav-item"><span class="nav-ico" aria-hidden="true">R</span> Risco (MIR)</a>
+        <a href="#" class="nav-item"><span class="nav-ico" aria-hidden="true">B</span> Boas-Vindas</a>
+        <a href="#" class="nav-item"><span class="nav-ico" aria-hidden="true">F</span> Financas</a>
+        <a href="#" class="nav-item"><span class="nav-ico" aria-hidden="true">O</span> Conc. OFX</a>
       </nav>
       <div class="sidebar-footer">
         <div class="sidebar-user">
@@ -71,7 +74,7 @@
       <section class="pipeline" aria-label="Pipeline de acolhimento">
         <div class="pipe-col">
           <div class="pipe-header">
-            <span class="pipe-dot" style="--dot:#6e7c74"></span>
+            <span class="pipe-dot" style="--dot:#6e7c74" aria-hidden="true"></span>
             <h2>Novo chegou</h2>
             <span class="count mono">2</span>
           </div>
@@ -108,7 +111,7 @@
 
         <div class="pipe-col">
           <div class="pipe-header">
-            <span class="pipe-dot" style="--dot:#0e6b52"></span>
+            <span class="pipe-dot" style="--dot:#0e6b52" aria-hidden="true"></span>
             <h2>Sendo acolhido</h2>
             <span class="count mono">4</span>
           </div>
@@ -117,7 +120,7 @@
               <div class="person-top">
                 <div class="mini-avatar-group">
                   <span class="avatar avatar-sm" aria-label="Titular">AV</span>
-                  <span class="avatar avatar-sm cover" aria-label="Cover">CR</span>
+                  <span class="avatar avatar-sm cover" aria-label="Cover">CV</span>
                 </div>
                 <div class="person-info">
                   <h3 class="person-name serif">Ana V.</h3>
@@ -125,7 +128,7 @@
                 </div>
               </div>
               <div class="checkpoint">
-                <div class="cp-track"><span class="cp-fill" style="width:66%"></span></div>
+                <div class="cp-track"><span class="cp-fill" style="width:66%" aria-hidden="true"></span></div>
                 <span class="cp-label">Checkpoint concedida 2/3</span>
               </div>
               <div class="person-tags">
@@ -153,7 +156,7 @@
 
         <div class="pipe-col">
           <div class="pipe-header">
-            <span class="pipe-dot" style="--dot:#2563a9"></span>
+            <span class="pipe-dot" style="--dot:#2563a9" aria-hidden="true"></span>
             <h2>Em integracao</h2>
             <span class="count mono">3</span>
           </div>
@@ -187,7 +190,7 @@
 
         <div class="pipe-col">
           <div class="pipe-header">
-            <span class="pipe-dot" style="--dot:#0f7b4f"></span>
+            <span class="pipe-dot" style="--dot:#0f7b4f" aria-hidden="true"></span>
             <h2>Integrado</h2>
             <span class="count mono">6</span>
           </div>
@@ -204,21 +207,101 @@
                 <span class="seal">&#10003;&nbsp; Integrado</span>
               </div>
             </article>
-            <div class="state-demo">
-              <h2 class="demo-title">Estados do design</h2>
-              <div class="state-grid">
-                <div class="state-card"><span class="state-head">Normal</span><span class="avatar" aria-hidden="true">NR</span><span class="sk-name">Nome</span></div>
-                <div class="state-card"><span class="state-head">Carregando</span><div class="skeleton-block" aria-hidden="true"></div><div class="skeleton-line" aria-hidden="true"></div></div>
-                <div class="state-card"><span class="state-head">Vazio</span><span class="state-note">Nenhuma pessoa aqui</span></div>
-                <div class="state-card error"><span class="state-head">Erro</span><span class="state-note">Falha ao carregar</span></div>
-              </div>
-            </div>
+            <button class="btn btn-ghost btn-block btn-sm">+ Ver integrados</button>
           </div>
         </div>
       </section>
 
+      <section class="section-heading" aria-labelledby="states-title">
+        <h2 id="states-title">Estados reais da interface</h2>
+        <p>View dedicada - os 4 estados do componente de pessoa no CRM Pastoral.</p>
+      </section>
+
+      <section class="state-viewer" aria-label="Mapa dos estados de interface">
+        <article class="state-panel">
+          <div class="state-panel-head">
+            <span class="state-dot" style="background:#0e6b52" aria-hidden="true"></span>
+            <span class="state-title">Normal / populado</span>
+          </div>
+          <div class="state-body">
+            <article class="person-card" style="margin:0">
+              <div class="person-top">
+                <span class="avatar" aria-hidden="true">TV</span>
+                <div class="person-info">
+                  <h3 class="person-name">Thiago V.</h3>
+                  <span class="person-meta mono">membro desde 02/2026</span>
+                </div>
+              </div>
+              <p class="person-note">Frequente aos cultos de quarta.</p>
+              <div class="person-tags">
+                <span class="badge badge-success">cover OK</span>
+                <span class="badge badge-primary">ministerio</span>
+              </div>
+            </article>
+          </div>
+        </article>
+
+        <article class="state-panel">
+          <div class="state-panel-head">
+            <span class="state-dot" style="background:#2563a9" aria-hidden="true"></span>
+            <span class="state-title">Carregando (skeleton)</span>
+          </div>
+          <div class="state-body">
+            <div class="sk-person" aria-hidden="true">
+              <div class="sk-avatar shimmer"></div>
+              <div class="sk-lines">
+                <span class="sk-line shimmer w90"></span>
+                <span class="sk-line shimmer w60"></span>
+                <span class="sk-line shimmer w40"></span>
+              </div>
+            </div>
+            <div class="sk-person" aria-hidden="true">
+              <div class="sk-avatar shimmer"></div>
+              <div class="sk-lines">
+                <span class="sk-line shimmer w90"></span>
+                <span class="sk-line shimmer w60"></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="state-panel">
+          <div class="state-panel-head">
+            <span class="state-dot" style="background:#b8872f" aria-hidden="true"></span>
+            <span class="state-title">Vazio (empty)</span>
+          </div>
+          <div class="state-body">
+            <div class="empty-state">
+              <div class="empty-ico" aria-hidden="true">&#128101;</div>
+              <h3>Sem pessoas nesta fase</h3>
+              <p>Nenhum visitante aguardando acolhimento agora. Acompanhe nas proximas reunioes.</p>
+              <button class="btn btn-primary btn-sm">Receber visitante</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="state-panel">
+          <div class="state-panel-head">
+            <span class="state-dot" style="background:#c0392b" aria-hidden="true"></span>
+            <span class="state-title">Erro / validacao</span>
+          </div>
+          <div class="state-body">
+            <div class="error-state" role="alert">
+              <div class="error-banner">
+                <span class="err-ico" aria-hidden="true">&#9888;</span>
+                <div>
+                  <strong>Falha ao carregar a lista</strong>
+                  <span>Nao foi possivel buscar as pessoas. Verifique sua conexao e tente novamente.</span>
+                </div>
+              </div>
+              <button class="btn btn-ghost btn-sm">&#8635;&nbsp; Tentar novamente</button>
+            </div>
+          </div>
+        </article>
+      </section>
+
       <footer class="app-footer">
-        <span>ChMS - identidade visual sob LGPD. Prototipo de design (visual ground truth).</span>
+        <span>ChMS - identidade visual sob LGPD. Prototipo de design (visual ground truth) / tokens WCAG AA.</span>
       </footer>
     </main>
   </div>
