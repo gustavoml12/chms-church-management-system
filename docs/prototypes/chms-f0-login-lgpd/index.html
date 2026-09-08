@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChMS - Acesso &amp; Consentimento LGPD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,560;9..144,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="auth-layout">
+    <!-- Painel de marca (lateral, desktop) -->
+    <aside class="brand-panel" aria-label="Apresentacao ChMS">
+      <div class="brand-block">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <div class="brand-type">
+          <strong class="brand-name">ChMS</strong>
+          <span class="brand-sub">Church Management System</span>
+        </div>
+      </div>
+      <div class="brand-hero">
+        <h1 class="hero-title">Acolher. Cuidar. <br>Retter cada pessoa.</h1>
+        <p class="hero-sub">Cada visitante e novo convertido recebe um voluntario titular e um cover do Ministerio de Boas-Vindas. Ninguem fica sem acompanhamento.</p>
+        <ul class="hero-stats">
+          <li><span class="h-mono">97%</span><span>Meta retencao trimestral</span></li>
+          <li><span class="h-mono">&lt;48h</span><span>1º follow-up a novos</span></li>
+          <li><span class="h-mono">&lt;30min</span><span>Fechamento de caixa com OFX</span></li>
+        </ul>
+      </div>
+      <footer class="brand-foot">
+        <span class="lgpd-note">&#128274;&nbsp; Dados sensiveis tratados sob a LGPD (Lei 13.709/2018)</span>
+      </footer>
+    </aside>
+
+    <!-- Coluna de acesso -->
+    <main class="auth-main">
+      <section class="auth-card" aria-labelledby="auth-title">
+        <!-- ===== Estado 1: NORMAL / Login ===== -->
+        <div class="auth-step" data-step="login">
+          <header class="auth-head">
+            <span class="auth-eyebrow mono">Acesso seguro</span>
+            <h2 id="auth-title">Entrar no ChMS</h2>
+            <p class="auth-desc">Acesse com suas credenciais. Sua funcao determina o que voce ve.</p>
+          </header>
+
+          <form class="auth-form" novalidate>
+            <div class="field">
+              <label for="login-email">E-mail</label>
+              <input id="login-email" type="email" autocomplete="email" placeholder="voce@igreja.org.br" aria-describedby="email-help">
+              <span id="email-help" class="field-help">Use o e-mail cadastrado pela lideranca.</span>
+            </div>
+            <div class="field">
+              <div class="label-row">
+                <label for="login-pass">Senha</label>
+                <a href="#" class="forgot-link">Esqueci minha senha</a>
+              </div>
+              <input id="login-pass" type="password" autocomplete="current-password" placeholder="Digite sua senha" aria-label="Senha">
+            </div>
+            <div class="field field-check">
+              <label class="check-label">
+                <input type="checkbox">
+                <span>Manter conectado neste dispositivo</span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Entrar&nbsp;&nbsp;&#8594;</button>
+          </form>
+
+          <div class="role-hint">
+            <span class="role-title">Demonstracao — selecione o papel para simular:</span>
+            <div class="role-pills" role="group" aria-label="Selecionar papel de demonstracao">
+              <button class="role-pill active" data-role="pastor" aria-pressed="true">Pastor</button>
+              <button class="role-pill" data-role="secretaria" aria-pressed="false">Secretaria</button>
+              <button class="role-pill" data-role="tesouraria" aria-pressed="false">Tesouraria</button>
+              <button class="role-pill" data-role="boas-vindas" aria-pressed="false">Boas-Vindas</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Estado 2: CARREGANDO ===== -->
+        <div class="auth-state auth-loading" aria-busy="true">
+          <div class="spinner" aria-hidden="true"></div>
+          <p class="load-text">Verificando credenciais&#8230;</p>
+          <div class="sk-fields" aria-hidden="true">
+            <span class="sk-line w100 shimmer"></span>
+            <span class="sk-line w90 shimmer"></span>
+            <span class="sk-line w30 shimmer"></span>
+          </div>
+        </div>
+
+        <!-- ===== Estado 3: ERRO / Validacao ===== -->
+        <div class="auth-state auth-error" role="alert">
+          <div class="error-ico" aria-hidden="true">&#9888;</div>
+          <h2>Nao foi possivel entrar</h2>
+          <p class="err-msg">E-mail ou senha incorretos. Verifique e tente novamente, ou recupere sua senha.</p>
+          <div class="field field-invalid">
+            <label for="re-email">E-mail</label>
+            <input id="re-email" type="email" value="pastor@igreja" aria-invalid="true" aria-describedby="email-err">
+            <span id="email-err" class="field-error">Digite um e-mail valido (ex.: nome@dominio.com).</span>
+          </div>
+          <button class="btn btn-primary">&#8635;&nbsp; Tentar novamente</button>
+        </div>
+
+        <!-- ===== Estado 4: Consentimento LGPD (1º acesso) ===== -->
+        <div class="auth-state auth-lgpd">
+          <div class="lgpd-shield" aria-hidden="true">&#128737;</div>
+          <span class="auth-eyebrow mono">Primeiro acesso</span>
+          <h2>Seus dados, sob seu controle</h2>
+          <p class="lgpd-intro">Para proteger dados sensiveis (LGPD), precisamos do seu consentimento antes de continuar.</p>
+          <div class="lgpd-scope">
+            <h3>O que sera coletado</h3>
+            <ul>
+              <li><span class="dot">&#10003;</span>Dados cadastrais minimos para gestao pastoral</li>
+              <li><span class="dot">&#10003;</span>Registro de acompanhamento e ministerio</li>
+              <li><span class="dot">&#9888;</span>Dados sensiveis de fe/religiao tratados com solenidade</li>
+              <li><span class="dot">&#10003;</span>Permissao de acesso conforme sua funcao (RBAC)</li>
+            </ul>
+          </div>
+          <div class="consent-box">
+            <label class="check-label consent">
+              <input type="checkbox" required>
+              <span>Concordo que meus dados sejam tratados conforme a <a href="#" class="policy-link">Politica de Privacidade</a> e o <a href="#" class="policy-link">Aviso LGPD</a>, podendo revogar a qualquer momento.</span>
+            </label>
+            <label class="check-label">
+              <input type="checkbox">
+              <span>Autorizo o uso de WhatsApp para comunicacoes do ministerio. (opcional)</span>
+            </label>
+          </div>
+          <button class="btn btn-primary btn-block">Aceitar e continuar</button>
+        </div>
+      </section>
+
+      <footer class="auth-footer">
+        <span>ChMS &#8226; GestorNDS &#8226; Identidade visual sob LGPD &#8226; Prototipo de design (visual ground truth) / WCAG AA</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
