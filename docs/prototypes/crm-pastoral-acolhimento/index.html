@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM Pastoral - Pipeline de Acolhimento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,560;9..144,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegacao administrativa">
+      <div class="sidebar-brand">
+        <span class="brand-mark">C</span>
+        <span class="brand-name">ChMS Pastoral</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active"><span class="nav-ico">H</span> Painel</a>
+        <a href="#" class="nav-item"><span class="nav-ico">P</span> Pessoas</a>
+        <a href="#" class="nav-item"><span class="nav-ico">A</span> Acolhimento</a>
+        <a href="#" class="nav-item"><span class="nav-ico">R</span> Risco (MIR)</a>
+        <a href="#" class="nav-item"><span class="nav-ico">B</span> Boas-Vindas</a>
+        <a href="#" class="nav-item"><span class="nav-ico">F</span> Financas</a>
+        <a href="#" class="nav-item"><span class="nav-ico">O</span> Conciliacao OFX</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <span class="avatar avatar-sm" aria-hidden="true">PS</span>
+          <div>
+            <strong>Pastor S. Rocha</strong>
+            <span class="sidebar-sub">admin</span>
+          </div>
+        </div>
+        <span class="lgpd-note-dark">Dados sob LGPD</span>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="page-header">
+        <button class="icon-btn menu-toggle" aria-label="Abrir menu">&#9776;</button>
+        <div>
+          <h1 class="page-title">CRM Pastoral - Pipeline de Acolhimento</h1>
+          <p class="page-sub">Visao do pastor / operador - cada pessoa acompanhada com dignidade.</p>
+        </div>
+        <div class="header-actions">
+          <span class="badge badge-gold">Visao Pastoral</span>
+        </div>
+      </header>
+
+      <section class="kpi-row" aria-label="Indicadores resumidos">
+        <article class="kpi-card">
+          <span class="kpi-value mono">312</span>
+          <span class="kpi-label">Membros ativos</span>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-value mono">8</span>
+          <span class="kpi-label">Visitantes em acompanhamento</span>
+        </article>
+        <article class="kpi-card kpi-danger">
+          <span class="kpi-value mono">3</span>
+          <span class="kpi-label">Em risco esta semana (MIR)</span>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-value mono">6</span>
+          <span class="kpi-label">Boas-vindas ativas (titular + cover)</span>
+        </article>
+      </section>
+
+      <section class="pipeline" aria-label="Pipeline de acolhimento">
+        <div class="pipe-col">
+          <div class="pipe-header">
+            <span class="pipe-dot" style="--dot:#6e7c74"></span>
+            <h2>Novo chegou</h2>
+            <span class="count mono">2</span>
+          </div>
+          <div class="pipe-body">
+            <article class="person-card">
+              <div class="person-top">
+                <span class="avatar" aria-hidden="true">ML</span>
+                <div class="person-info">
+                  <h3 class="person-name">Mariana L.</h3>
+                  <span class="person-meta mono">28 anos - novo</span>
+                </div>
+              </div>
+              <p class="person-note">Chegou na reuniao de domingo.</p>
+              <div class="person-tags">
+                <span class="badge badge-info">sem cover</span>
+                <span class="badge badge-warning">atribuir titular</span>
+              </div>
+            </article>
+            <article class="person-card">
+              <div class="person-top">
+                <span class="avatar" aria-hidden="true">JP</span>
+                <div class="person-info">
+                  <h3 class="person-name">Joao P.</h3>
+                  <span class="person-meta mono">34 anos - novo</span>
+                </div>
+              </div>
+              <div class="person-tags">
+                <span class="badge badge-info">sem cover</span>
+              </div>
+            </article>
+            <button class="btn btn-ghost btn-block">+ Nova pessoa</button>
+          </div>
+        </div>
+
+        <div class="pipe-col">
+          <div class="pipe-header">
+            <span class="pipe-dot" style="--dot:#0e6b52"></span>
+            <h2>Sendo acolhido</h2>
+            <span class="count mono">4</span>
+          </div>
+          <div class="pipe-body">
+            <article class="person-card highlight">
+              <div class="person-top">
+                <div class="mini-avatar-group">
+                  <span class="avatar avatar-sm" aria-label="Titular">AV</span>
+                  <span class="avatar avatar-sm cover" aria-label="Cover">CR</span>
+                </div>
+                <div class="person-info">
+                  <h3 class="person-name serif">Ana V.</h3>
+                  <span class="person-meta mono">titular + cover</span>
+                </div>
+              </div>
+              <div class="checkpoint">
+                <div class="cp-track"><span class="cp-fill" style="width:66%"></span></div>
+                <span class="cp-label">Checkpoint concedida 2/3</span>
+              </div>
+              <div class="person-tags">
+                <span class="badge badge-success">cover OK</span>
+              </div>
+            </article>
+            <article class="person-card mirm">
+              <div class="person-top">
+                <span class="avatar avatar-danger" aria-hidden="true">CR</span>
+                <div class="person-info">
+                  <h3 class="person-name serif">Carlos R.</h3>
+                  <span class="person-meta mono">membro ha 3 anos</span>
+                </div>
+              </div>
+              <div class="mir-alert" role="alert">
+                <span class="mir-ico" aria-hidden="true">&#9888;</span>
+                <span>Sem contato ha 14 dias</span>
+              </div>
+              <div class="person-tags">
+                <span class="badge badge-danger">risco MIR</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="pipe-col">
+          <div class="pipe-header">
+            <span class="pipe-dot" style="--dot:#2563a9"></span>
+            <h2>Em integracao</h2>
+            <span class="count mono">3</span>
+          </div>
+          <div class="pipe-body">
+            <article class="person-card">
+              <div class="person-top">
+                <span class="avatar" aria-hidden="true">FM</span>
+                <div class="person-info">
+                  <h3 class="person-name serif">Felipe M.</h3>
+                  <span class="person-meta">ministerio: louvor</span>
+                </div>
+              </div>
+              <div class="person-tags">
+                <span class="badge badge-primary">louvor</span>
+              </div>
+            </article>
+            <article class="person-card">
+              <div class="person-top">
+                <span class="avatar" aria-hidden="true">BS</span>
+                <div class="person-info">
+                  <h3 class="person-name serif">Beatriz S.</h3>
+                  <span class="person-meta">ministerio: recepcao</span>
+                </div>
+              </div>
+              <div class="person-tags">
+                <span class="badge badge-primary">recepcao</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="pipe-col">
+          <div class="pipe-header">
+            <span class="pipe-dot" style="--dot:#0f7b4f"></span>
+            <h2>Integrado</h2>
+            <span class="count mono">6</span>
+          </div>
+          <div class="pipe-body">
+            <article class="person-card">
+              <div class="person-top">
+                <span class="avatar avatar-success" aria-hidden="true">RD</span>
+                <div class="person-info">
+                  <h3 class="person-name">Rafael D.</h3>
+                  <span class="person-meta mono">membro desde 04/2026</span>
+                </div>
+              </div>
+              <div class="person-tags">
+                <span class="seal">&#10003;&nbsp; Integrado</span>
+              </div>
+            </article>
+            <div class="state-demo">
+              <h2 class="demo-title">Estados do design</h2>
+              <div class="state-grid">
+                <div class="state-card"><span class="state-head">Normal</span><span class="avatar" aria-hidden="true">NR</span><span class="sk-name">Nome</span></div>
+                <div class="state-card"><span class="state-head">Carregando</span><div class="skeleton-block" aria-hidden="true"></div><div class="skeleton-line" aria-hidden="true"></div></div>
+                <div class="state-card"><span class="state-head">Vazio</span><span class="state-note">Nenhuma pessoa aqui</span></div>
+                <div class="state-card error"><span class="state-head">Erro</span><span class="state-note">Falha ao carregar</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <span>ChMS - identidade visual sob LGPD. Prototipo de design (visual ground truth).</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
